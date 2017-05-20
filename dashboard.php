@@ -43,6 +43,13 @@
           </a>
         </li>
 
+        <li class="treeview">
+          <a href="pegawai.php">
+            <i class="fa fa-shopping-bag"></i>
+            <span>Pegawai</span>
+          </a>
+        </li>
+
       </ul>
     </section>
     <!-- /.sidebar -->
