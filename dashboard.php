@@ -50,6 +50,20 @@
           </a>
         </li>
 
+        <li class="treeview">
+          <a href="pembelian.php">
+            <i class="fa fa-shopping-bag"></i>
+            <span>Pembelian</span>
+          </a>
+        </li>
+
+        <li class="treeview">
+          <a href="penjualan.php">
+            <i class="fa fa-shopping-bag"></i>
+            <span>Penjualan</span>
+          </a>
+        </li>
+
       </ul>
     </section>
     <!-- /.sidebar -->
