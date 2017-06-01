@@ -64,6 +64,13 @@
           </a>
         </li>
 
+        <li class="treeview">
+          <a href="roi.php">
+            <i class="fa fa-shopping-bag"></i>
+            <span>EOQ dan ROP</span>
+          </a>
+        </li>
+
       </ul>
     </section>
     <!-- /.sidebar -->

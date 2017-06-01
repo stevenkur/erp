@@ -14,12 +14,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Barang
+        EOQ
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-shopping-bag"></i> Home</a></li>
-        <li class="active">Barang</li>
+        <li class="active">ROP</li>
       </ol>
     </section>
 
@@ -30,29 +30,27 @@
       <div class="box box-primary">
         <!-- /.box-header -->
         <div class="box-body">
-        <h3>Barang</h3>
+        <h3>EOQ</h3>
           <table id="barang" class="table table-bordered table-striped">
             <thead>
             <tr>
-              <th>ID</th>
+             
               <th>Nama</th>
-              <th>Stock</th>
-              <th>Edit</th>
-              <th>Delete</th>
+              <th>EOQ</th>
+              
+              
             </tr>
             </thead>
             <tbody>
             <?php
-              require 'selectbarang.php';
+              require 'selectrop.php';
               for($i=0; $i<sizeof($hasil); $i++)
               {
                 echo '
                   <tr>
-                    <td>'.$hasil[$i]['idbarang'].'</td>
-                    <td>'.$hasil[$i]['namabarang'].'</td>
-                    <td>'.$hasil[$i]['stockbarang'].'</td>';?>            
-                    <td><a class="btn btn-primary" type="submit" href="<?php echo 'barangupdating.php?idbarang='.$hasil[$i]['idbarang'].'&namabarang='.$hasil[$i]['namabarang'].'&stockbarang='.$hasil[$i]['stockbarang'];?>">Edit</a></td>
-                    <td><a class="btn btn-danger" type="submit" href="<?php echo 'deletebarang.php?idbarang='.$hasil[$i]['idbarang']; ?>">Delete</a></td>
+                     <td>'.$hasil[$i]['namabarang'].'</td>
+                    <td>7.2955043</td>';?>            
+                    
             <?php echo '</tr>';}?>                
             </tbody>
           </table>
@@ -62,11 +60,11 @@
     </section>
 
     <!-- Main content -->
-    <section class="col-lg-5">
-      <div class="box box-primary">
+    <!-- <section class="col-lg-5">
+      <div class="box box-primary"> -->
         <!-- /.box-header -->
-        <div class="box-body">
-        <h3>Insert Barang</h3>
+        <!-- <div class="box-body">
+        <h3>Pembelian Barang</h3>
         <form action="insertbarang.php" role="form" name="formbarang" method="post">
           <br>
           <div class="form-group">
@@ -84,26 +82,32 @@
             <label class="col-lg-1">:</label>
             <input type="text" id="stockbarang" name="stockbarang" size="30" placeholder="Masukkan Stock Barang">
           </div>
-           <div class="form-group">
-            <label class="col-lg-2"> Rusak </label>
+          <div class="form-group">
+            <label class="col-lg-2"> Jumlah </label>
             <label class="col-lg-1">:</label>
-            <input type="text" id="stockbarang" name="stockbarang" size="30" placeholder="Masukkan Kerusakan Barang">
+            <input type="text" id="jumlahbarang" name="jumlahbarang" size="30" placeholder="Masukkan Jumlah Barang">
+          </div>
+          <div class="form-group">
+            <label class="col-lg-2"> Harga/ Unit </label>
+            <label class="col-lg-1">:</label>
+            <input type="text" id="hargabarang" name="hargabarang" size="30" placeholder="Masukkan Harga Barang">
           </div>
 
           <div class="box-footer" align="right">
-            <button type="reset" class="btn btn-primary">Reset</button>
-            <button type="submit" class="btn btn-primary">Insert</button>
+            <button type="reset" class="btn btn-danger">Reset</button>
+            <button type="submit" class="btn btn-primary">Beli</button>
           </div>
         </form>
-        </div>
+        </div> -->
           <!-- /.box-body -->
-        </div>
+    <!--     </div>
     </section>
     </div>
     </section>
-  </div>
-
-	<footer class="main-footer">
+  </div> -->
+    </section>
+</div>
+<footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 1.0
     </div>
@@ -112,6 +116,7 @@
   </footer>
 
 </div>
+
 <!-- ./wrapper -->
 
 <!-- jQuery 2.2.3 -->

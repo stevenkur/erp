@@ -7,7 +7,7 @@ require 'connect.php';
 $keuntungan = ($_POST['hargajualbarang']-$_POST['hargabarang'])*$_POST['jumlahdijual'];
 $penjualanCollection = $companydb->penjualan;
 
-$insertOneResult = $penjualanCollection->insertOne(
+$insertOneResult = $penjualanCollection->insertOne(u7t``
 	['namabarang' => $_POST['namabarang'], 'hargabarang' => $_POST['hargabarang'], 'idpenjualan' => $_POST['idpenjualan'], 'jumlahdijual' => $_POST['jumlahdijual'], 'hargajualbarang' => $_POST['hargajualbarang'],'keuntungan' => $keuntungan]
 );
 

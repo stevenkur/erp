@@ -14,12 +14,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Barang
+       Hitung ROP
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-shopping-bag"></i> Home</a></li>
-        <li class="active">Barang</li>
+        <li class="active">Hitung ROP</li>
       </ol>
     </section>
 
@@ -30,29 +30,31 @@
       <div class="box box-primary">
         <!-- /.box-header -->
         <div class="box-body">
-        <h3>Barang</h3>
+        <h3>Hitung ROP</h3>
           <table id="barang" class="table table-bordered table-striped">
             <thead>
             <tr>
-              <th>ID</th>
               <th>Nama</th>
-              <th>Stock</th>
-              <th>Edit</th>
-              <th>Delete</th>
+              <th>Jumlah</th>
+              <th>Harga Beli / unit</th>
+              <th>Hitung ROP</th>
+           
             </tr>
             </thead>
             <tbody>
             <?php
-              require 'selectbarang.php';
+              require 'selectpembelian.php';
               for($i=0; $i<sizeof($hasil); $i++)
               {
                 echo '
                   <tr>
-                    <td>'.$hasil[$i]['idbarang'].'</td>
                     <td>'.$hasil[$i]['namabarang'].'</td>
-                    <td>'.$hasil[$i]['stockbarang'].'</td>';?>            
-                    <td><a class="btn btn-primary" type="submit" href="<?php echo 'barangupdating.php?idbarang='.$hasil[$i]['idbarang'].'&namabarang='.$hasil[$i]['namabarang'].'&stockbarang='.$hasil[$i]['stockbarang'];?>">Edit</a></td>
-                    <td><a class="btn btn-danger" type="submit" href="<?php echo 'deletebarang.php?idbarang='.$hasil[$i]['idbarang']; ?>">Delete</a></td>
+                    <td>'.$hasil[$i]['jumlahbarang'].'</td>
+                    <td>'.$hasil[$i]['hargabarang'].'</td>';?>
+                
+              
+                    <td><a class="btn btn-success" type="submit" href="<?php echo 'barangpenjualan.php?namabarang='.$result[$i]['namabarang'].'&jumlahbarang='.$result[$i]['jumlahbarang'].'&hargabarang='.$result[$i]['hargabarang']; ?>">Hitung</a></td>
+                   
             <?php echo '</tr>';}?>                
             </tbody>
           </table>
@@ -66,33 +68,42 @@
       <div class="box box-primary">
         <!-- /.box-header -->
         <div class="box-body">
-        <h3>Insert Barang</h3>
-        <form action="insertbarang.php" role="form" name="formbarang" method="post">
+        <h3>Hitung EOQ dari <?php echo $_GET['namabarang'];?></h3>
+        <form action="hitunghitungrop.php" role="form" name="formbarang" method="post">
           <br>
+          
           <div class="form-group">
-            <label class="col-lg-2"> ID </label>
+            <label class="col-lg-4"> Nama </label>
             <label class="col-lg-1">:</label>
-            <input type="text" id="idbarang" name="idbarang" size="30" placeholder="Masukkan ID Barang">
+            <input type="text" id="namabarang" name="namabarang" size="30" value="<?php echo $_GET['namabarang'];?>">
+          </div>
+          
+          <div class="form-group">
+            <label class="col-lg-4">HargaBeli/Unit</label>
+            <label class="col-lg-1">:</label>
+            <input type="text" id="idpembelian" name="hargabarang" size="30" value="<?php echo $_GET['hargabarang'];?>">
+          </div>
+          
+          <div class="form-group">
+            <label class="col-lg-4"> Penjualan/tahun </label>
+            <label class="col-lg-1">:</label>
+            <input type="text" id="jualtahun" name="jualtahun" size="30" placeholder="Masukkan Penjualan/ tahun">
           </div>
           <div class="form-group">
-            <label class="col-lg-2"> Nama </label>
+            <label class="col-lg-4"> Order Fee </label>
             <label class="col-lg-1">:</label>
-            <input type="text" id="namabarang" name="namabarang" size="30" placeholder="Masukkan Nama Barang">
-          </div>
-          <div class="form-group">
-            <label class="col-lg-2"> Stock </label>
-            <label class="col-lg-1">:</label>
-            <input type="text" id="stockbarang" name="stockbarang" size="30" placeholder="Masukkan Stock Barang">
+            <input type="text" id="tenggangwaktu" name="tenggangwaktu" size="30" placeholder="Masukkan Order Fee">
           </div>
            <div class="form-group">
-            <label class="col-lg-2"> Rusak </label>
+            <label class="col-lg-4"> Booking Fee </label>
             <label class="col-lg-1">:</label>
-            <input type="text" id="stockbarang" name="stockbarang" size="30" placeholder="Masukkan Kerusakan Barang">
+            <input type="text" id="safetystock" name="safetystock" size="30" placeholder="Masukkan Booking Fee ">
           </div>
 
+
           <div class="box-footer" align="right">
-            <button type="reset" class="btn btn-primary">Reset</button>
-            <button type="submit" class="btn btn-primary">Insert</button>
+            <button type="reset" class="btn btn-danger">Reset</button>
+            <button type="submit" class="btn btn-primary">Hitung</button>
           </div>
         </form>
         </div>
@@ -103,7 +114,7 @@
     </section>
   </div>
 
-	<footer class="main-footer">
+  <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 1.0
     </div>
